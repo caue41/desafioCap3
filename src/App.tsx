@@ -1,10 +1,11 @@
-import Navbar from 'core/components/Navbar';
+import React from 'react';
+import Routes from 'Routes';
 import './app.scss';
 import './core/assets/styles/custom.scss';
 
 const App = () => {
     return (
-        <Navbar text="Bootcamp DevSuperior"/>
+        <Routes/>
     );
 }
 
