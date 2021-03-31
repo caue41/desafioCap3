@@ -2,12 +2,14 @@ import React from 'react';
 import './styles.scss';
 
 type Props = {
-    text: string;
+    text1: string | number | undefined;
+    text2: string | number | undefined | Date;
 }
 
-const OutputCard = ({ text }: Props) => (
+const OutputCard = ({ text1, text2 }: Props) => (
     <div className="main-card">
-        <h6 className="text-color1">{text}</h6>
+        <h6 className="text-color1">{text1}</h6>
+        <h6 className="text-color2">{text2}</h6>
     </div>
 );
 
