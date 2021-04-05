@@ -1,28 +1,21 @@
-import Button from 'core/components/Button';
 import SearchTable from 'core/components/SearchTable';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import InputTable from './InputTable';
 import './styles.scss';
 
 const Search = () => {
     return (
         <div>
-            <div className="base-position">
-                <div className="search-base-form">
-                    <h1>Encontre um perfil Github</h1>
-                    <div className="row">
-                        <div className="col-7 position1-config">
-                            <input type="text" className="form-control" />
-                        </div>
-                    </div>
-                    <div className="position2-config">
-                            <Button text="Encontrar" />
-                    </div>
-                </div>
-            </div>
-            <div className="base-position">
-                <SearchTable />
+            <InputTable />
+            <div className="search-position">
+                <Switch>
+                    <Route path="/search/user">
+                        <SearchTable />
+                    </Route>
+                </Switch>
             </div>
         </div>
-    );
-}
+    );}
 
 export default Search;
