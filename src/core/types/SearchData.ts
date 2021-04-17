@@ -8,4 +8,5 @@ export type SearchData = {
     blog: string;
     location: string;
     created_at: Date;
+    login: string;
 }

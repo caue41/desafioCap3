@@ -3,22 +3,28 @@ import Button from '../Button';
 import OutputCard from '../OutputCard';
 import OutputCardHeader from '../OutputCardHeader';
 import { SearchData } from 'core/types/SearchData';
-import { Switch } from 'react-router';
-import { Route } from 'react-router-dom';
+import { useState } from 'react';
+import ImageLoader from './Loader/ImageLoader';
 
 type Props = {
     user: SearchData
 }
 
 const SearchTable = ({ user }: Props) => {
+
     return (
         <div className="page search-board">
             <div className="item3 menu">
                 <div className="padding_config2">
-                    <img src={user.avatar_url} alt={user.blog} className="user-image" />
+                        <img src={user.avatar_url} alt={user.blog} className="user-image" />
                 </div>
                 <li className="Buttom-text-config">
-                    <Button text="Ver perfil" />
+                    <a
+                        href={`https://github.com/${user.login}`}
+                        target="_new"
+                    >
+                        <Button text="Ver perfil" />
+                    </a>
                 </li>
             </div>
             <div className="item1 header row align-text">
