@@ -1,21 +1,33 @@
 import SearchTable from 'core/components/SearchTable';
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { SearchData } from 'core/types/SearchData';
+import { makeRequest } from 'core/utils/request';
+import React, { useState } from 'react';
 import InputTable from './InputTable';
 import './styles.scss';
 
 const Search = () => {
+    const [userInfo, setUserInfo] = useState<SearchData>();
+    console.log(userInfo);
+
+    const handleOnSearch = (search: string) => {
+        makeRequest({ url: `/${search}` })
+            .then(response => {
+                setUserInfo(response.data);
+            })
+    }
+
     return (
         <div>
-            <InputTable />
+            <InputTable onSearch={handleOnSearch} />
             <div className="search-position">
-                <Switch>
-                    <Route path="/search/user">
-                        <SearchTable />
-                    </Route>
-                </Switch>
+                {
+                    userInfo && (
+                        <SearchTable user={userInfo} />
+                    )
+                }
             </div>
         </div>
-    );}
+    );
+}
 
 export default Search;
